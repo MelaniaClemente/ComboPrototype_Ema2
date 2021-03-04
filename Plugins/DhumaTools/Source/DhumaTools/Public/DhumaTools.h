@@ -1,15 +1,25 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
 
+class FToolBarBuilder;
+
+class FMenuBuilder;
+
 class FDhumaToolsModule : public IModuleInterface
 {
 public:
-
-	/** IModuleInterface implementation */
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
+
+	void PluginButtonClicked();
+
+private:
+	void RegisterMenus();
+
+	static TSharedRef<SDockTab> CreateTab(const FSpawnTabArgs& SpawnTabArgs, class UWidgetBlueprint* WidgetBlueprint);
+
+private:
+	TSharedPtr<class FUICommandList> PluginCommands;
 };

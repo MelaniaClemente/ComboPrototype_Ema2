@@ -23,7 +23,9 @@ class DHUMATOOLS_API UBlueprintCallable : public UBlueprintFunctionLibrary
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "Dhuma|Room Data")
-		static TArray<FString> GetListOfSpawnedRoom(TArray<AActor*> Actors);
+		static TArray<FString> GetListOfAllRooms(UObject* Object);
+	UFUNCTION(BlueprintCallable, Category = "Dhuma|Room Data")
+		static TArray<FString> GetListOfSpawnedRooms(TArray<AActor*> Actors);
 	UFUNCTION(BlueprintCallable, Category = "Dhuma|Room Data")
 		static TArray<FRoomData> GetRoomStats(TArray<FString> ListOfRoom, UDataTable* DataTable);
 };
